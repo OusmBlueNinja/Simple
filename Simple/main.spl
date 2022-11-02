@@ -1,3 +1,8 @@
 print "Name:";
+RESET;
 input name;
+sleep(1);
+print "Hello: ";
 print "$name";
+print "\n";
+goto 0;

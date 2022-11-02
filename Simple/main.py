@@ -1,4 +1,4 @@
-import os, sys, threading
+import os, sys, threading, time
 import getopt
 import simple
 
@@ -38,14 +38,30 @@ def parce(filename):
             block.append(data[i])
     return blocks
 
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def main(file):
-    print(f'running {file}')
+    print(f'Parceing {file}')
     parcedFile = parce(file)
-    print(len(parcedFile))
-    for i in range(len(parcedFile)):
+    print(f'Running {file} with {len(parcedFile)} lines of code')
+    time.sleep(0.5)
+    clear()
+    i = 0
+    fileLen = len(parcedFile)
+    while i <= fileLen:
+        
         #print("".join(parcedFile[i]))
-        simple.interpriter(parcedFile[i])
+        OPT = simple.interpriter(parcedFile[i])
+        #print(i)
+        #print(type(i), type(fileLen), type(OPT)) 
+        if OPT != 0:
+            i = int(OPT)
+        else:
+            i = i + 1   
+            
+              
     
     pass
 
