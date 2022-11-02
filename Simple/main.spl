@@ -1,0 +1,3 @@
+print "Name:";
+input name;
+print "$name";
