@@ -1,6 +1,9 @@
 # interpriter for the programing language " Simple "
 # by https://github.com/ousmblueninja
-import os
+import os, random
+
+
+LOGFILE = f"./logs/log_{random.randrange(11111,99999)}.log"
 
 
 class b:
@@ -18,7 +21,7 @@ class b:
 
 def error(lineNum, error):
   print(f'{b.ENDC}[{b.FAIL}ERROR{b.ENDC}] {error} on line: {lineNum} \n')
-  with open("debug.log", "a") as f:
+  with open(LOGFILE, "a") as f:
 
     DebugData = f"[ERROR] {error} on line: {lineNum}"
     f.write(str(DebugData))
@@ -57,7 +60,7 @@ def startFile():
 
 def debugger(ln, operator):
   global inFunc, callLn, data, functions, DEBUG, defRun
-  with open("debug.log", "a") as f:
+  with open(LOGFILE, "a") as f:
     spaces = (12 - len(operator))
 
     DebugData = f"{ln}        {operator}{' '*spaces}|   {data}   |      {functions}"
@@ -105,7 +108,7 @@ def interpriter(raw, lineNum):
     code = code.replace(';', "")
     #print(code)
     if inFunc == False and defRun:
-      with open("debug.log", "a") as f:
+      with open(LOGFILE, "a") as f:
 
         f.write(str("EOF Program over."))
         f.write("\n")
@@ -153,10 +156,10 @@ def interpriter(raw, lineNum):
   elif code.startswith(commands[1]):
     code = code.replace(commands[1] + ' ', "")
     code = code.replace(';', "")
-    with open("debug.log", "a") as f:
+    with open(LOGFILE, "a") as f:
       f.write(str("(INPUT: taking User Input \n"))
     inData = input("")
-    with open("debug.log", "a") as f:
+    with open(LOGFILE, "a") as f:
       f.write(
         str(
           f'(DEBUG: User input saved as [ {code} ] with data [ {inData} ] \n'))
