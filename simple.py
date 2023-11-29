@@ -4,7 +4,12 @@ import os, random
 
 
 LOGFILE = f"./logs/log_{random.randrange(11111,99999)}.log"
+print(LOGFILE)
 
+try:
+  os.mkdir("./logs")
+except FileExistsError as e:
+  pass
 
 class b:
   HEADER = '\033[95m'

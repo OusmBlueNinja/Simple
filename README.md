@@ -108,7 +108,7 @@ Defining and Calling Functions
 Use the DEF and RUNDEF commands to define and call functions:
 
 ```
-DEF myFunction
+DEF myFunction;
 print "This is my function";
 ENDDEF;
 
