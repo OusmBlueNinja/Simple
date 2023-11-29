@@ -1,0 +1,12 @@
+DEF main;
+print "Thanks\n";
+END;
+DEFEND;
+print "Type hello\n";
+input in;
+if ($in=="hello"){*main};
+print "THATS NOT hello\n";
+sleep 1;
+CLR;
+goto 5;
+END;
